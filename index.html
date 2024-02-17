@@ -18,8 +18,9 @@
       "esri/Map",
       "esri/views/MapView", 
       "esri/Graphic",  
-      "esri/layers/GraphicsLayer"
-    ], function (esriConfig,Map, MapView, Graphic, GraphicsLayer) {
+      "esri/layers/GraphicsLayer", 
+      "esri/geometry/Polyline"
+    ], function (esriConfig,Map, MapView, Graphic, GraphicsLayer, Polyline) {
 
       esriConfig.apiKey = "AAPKb670b25c5e1f41ffa2ce27d04227d3f93K9J3E8suZymk8VVxsokwPYEIElN3ACsM6Paswtiz4gfOWbwBRFrCw9MeErykeeJ";
       const map = new Map({
@@ -79,6 +80,36 @@
       //adding the point to the graphics layer
       graphicsLayer.add(pointGraphic);
 
+      // Create a polyline
+      const polyline = {  
+        type: "polyline",  
+        paths: [[-97.74222, 30.2744], [-97.7388, 30.2722], [-97.7433, 30.2700]]
+      };
+
+      // Create a simple line symbol for rendering the line in the view
+      const lineSymbol = {
+        type: "simple-line", // autocasts as new SimpleLineSymbol()
+        color: [226, 119, 40], // RGB color values as an array
+        width: 4
+     };
+
+     const lineAtt = {
+        Name: "Lions Municipal Golf Course", // The name of the area
+    };
+
+
+  const polylineGraphic = new Graphic({
+    geometry: polyline,
+    symbol: lineSymbol,
+    attributes: lineAtt,
+    popupTemplate: {
+      title: "{Name}",
+      content: "A golf course in Austin, Texas"
+    }
+  });
+  
+  graphicsLayer.add(polylineGraphic);
+      
     });
   </script>
 
