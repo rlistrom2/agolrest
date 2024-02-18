@@ -161,8 +161,8 @@
   // Create a new FeatureLayer
   const usaairportLayer = new FeatureLayer({
     url: "https://services.arcgis.com/LBbVDC0hKPAnLRpO/arcgis/rest/services/US_Airports_2/FeatureServer" , //get URL from AGOL Item Page
-    renderer: airportRenderer 
-    // definitionExpression: "Fac_Type = 'AIRPORT'", //adding sql to filter for airports
+    renderer: airportRenderer,
+    definitionExpression: "Fac_Type = 'AIRPORT'", //adding sql to filter for airports
     // labelingInfo: [airportLabels] //adding the labels
   });
 
