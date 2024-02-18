@@ -128,11 +128,11 @@
 
   map.add(usaeduLayer);
 
-  // Define a pop-up for usaairportLayer
-  const popupusairports = {
-      "title": "Airports",
-      "content": "<b>Site Number:</b> {Site_Num}<br><b>City:</b> {City}<br><b>Elevation:</b> {Elevation}<br><b>Airspace:</b> {Airspace_A}<br>"
-    }
+  // // Define a pop-up for usaairportLayer
+  // const popupusairports = {
+  //     "title": "Airports",
+  //     "content": "<b>Site Number:</b> {Site_Num}<br><b>City:</b> {City}<br><b>Elevation:</b> {Elevation}<br><b>Airspace:</b> {Airspace_A}<br>"
+  //   }
 
   const airportRenderer = {
         "type": "simple",
@@ -148,13 +148,14 @@
   // Create a new FeatureLayer
   const usaairportLayer = new FeatureLayer({
     url: "https://services.arcgis.com/LBbVDC0hKPAnLRpO/arcgis/rest/services/US_Airports_2/FeatureServer" , //get URL from AGOL Item Page
-    renderer: airportRenderer, 
+    renderer: airportRenderer
+  });
     
 
-   //adding the popup here
-   outFields: ["Site_num","City", "Elevation", "Airspace_A"],
-    popupTemplate: popupusairports
-  });
+  //  //adding the popup here
+  //  outFields: ["Site_num","City", "Elevation", "Airspace_A"],
+  //   popupTemplate: popupusairports
+  // });
 
   map.add(usaairportLayer);
 
