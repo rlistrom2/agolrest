@@ -95,14 +95,14 @@
         width: 4
      };
 
-     const lineArt = {
+     const lineAtt = {
         Name: "Shoal Creek", // The name of the area
     };
 
   const polylineGraphic = new Graphic({
     geometry: polyline,
     symbol: lineSymbol,
-    attributes: lineArt,
+    attributes: lineAtt,
     popupTemplate: {
       title: "Shoal Creek",
       content: "A creek in Austin, Texas"
@@ -114,24 +114,27 @@
   // Create a polyline
   const polygon = {  
         type: "polygon",  
-        paths: [[-97.730348, 30.278725], [-97.727056, 30.286628], [-97.740146, 30.289555], [-97.740918, 30.281662]]
+        rings: [[-97.730348, 30.278725], [-97.727056, 30.286628], [-97.740146, 30.289555], [-97.740918, 30.281662]]
       };
 
   // Create a simple line symbol for rendering the line in the view
-  const lineSymbolp = {
-        type: "simple-line", // autocasts as new SimpleLineSymbol()
-        color: [226, 119, 40], // RGB color values as an array
-        width: 4
+  const simpleFillSymbol = {
+        type: "simple-fill", // autocasts as new SimpleLineSymbol()
+        color: [226, 139, 79, 0.8], // RGB color values as an array
+        outline: {
+          color: [255, 255, 255],
+          width: 1
+        }
      };
 
-  const lineArtp = {
+  const polygonAtt = {
         Name: "University of Texas at Austin", // The name of the area
     };
 
   const polygonGraphic = new Graphic({
     geometry: polygon,
-    symbol: lineSymbolp,
-    attributes: lineArtp,
+    symbol: simpleFillSymbol,
+    attributes: polygonAtt,
     popupTemplate: {
       title: "University of Texas at Austin",
       content: "A college in Austin"
