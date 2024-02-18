@@ -166,11 +166,22 @@ const airportLabels = {
     labelingInfo: [airportLabels] //adding the labels
   });
 
-  // const usaheliportLayer = new FeatureLayer({
-  //   url: "https://services.arcgis.com/LBbVDC0hKPAnLRpO/arcgis/rest/services/US_Airports_2/FeatureServer" , //get URL from AGOL Item Page
-  //   definitionExpression: "Fac_Type = 'HELIPORT'", //adding sql to filter for heliports
-  //   labelingInfo: [airportLabels] //adding the labels
-  // });
+  const heliportRenderer = {
+        "type": "simple",
+        "symbol": {
+          "type": "picture-marker",
+          "url": "helicopter.png",
+          "width": "18px",
+          "height": "18px"
+        }
+      }
+
+  const usaheliportLayer = new FeatureLayer({
+    url: "https://services.arcgis.com/LBbVDC0hKPAnLRpO/arcgis/rest/services/US_Airports_2/FeatureServer" , //get URL from AGOL Item Page
+    renderer: heliportRenderer,
+    definitionExpression: "Fac_Type = 'HELIPORT'", //adding sql to filter for heliports
+    labelingInfo: [airportLabels] //adding the labels
+  });
     
   map.add(usaairportLayer);
 
