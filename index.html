@@ -19,8 +19,9 @@
       "esri/views/MapView", 
       "esri/Graphic",  
       "esri/layers/GraphicsLayer", 
-      "esri/geometry/Polyline"
-    ], function (esriConfig,Map, MapView, Graphic, GraphicsLayer, Polyline) {
+      "esri/geometry/Polyline",
+      "esri/layers/FeatureLayer"
+    ], function (esriConfig,Map, MapView, Graphic, GraphicsLayer, Polyline, FeatureLayer) {
 
       esriConfig.apiKey = "AAPKb670b25c5e1f41ffa2ce27d04227d3f93K9J3E8suZymk8VVxsokwPYEIElN3ACsM6Paswtiz4gfOWbwBRFrCw9MeErykeeJ";
       const map = new Map({
@@ -110,6 +111,14 @@
 
   graphicsLayer.add(polylineGraphic);
       
+  // Create a new FeatureLayer
+  const usaeduLayer = new FeatureLayer({
+    url: "https://services2.arcgis.com/FiaPA4ga0iQKduv3/arcgis/rest/services/Colleges_and_Universities_View/FeatureServer" //get URL from AGOL Item Page
+    });
+    
+  map.add(usaeduLayer);
+
+
     });
   </script>
 
