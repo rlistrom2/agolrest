@@ -179,8 +179,8 @@ const airportLabels = {
   const usaheliportLayer = new FeatureLayer({
     url: "https://services.arcgis.com/LBbVDC0hKPAnLRpO/arcgis/rest/services/US_Airports_2/FeatureServer" , //get URL from AGOL Item Page
     renderer: heliportRenderer,
-    definitionExpression: "Fac_Type = 'HELIPORT'", //adding sql to filter for heliports
-    labelingInfo: [airportLabels] //adding the labels
+    definitionExpression: "Fac_Type = 'HELIPORT'" //adding sql to filter for heliports
+    // labelingInfo: [airportLabels] //adding the labels
   });
     
   map.add(usaairportLayer);
