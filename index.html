@@ -20,8 +20,9 @@
       "esri/Graphic",  
       "esri/layers/GraphicsLayer", 
       "esri/geometry/Polyline",
+      "esri/geometry/Polygon",
       "esri/layers/FeatureLayer"
-    ], function (esriConfig,Map, MapView, Graphic, GraphicsLayer, Polyline, FeatureLayer) {
+    ], function (esriConfig,Map, MapView, Graphic, GraphicsLayer, Polyline, Polygon, FeatureLayer) {
 
       esriConfig.apiKey = "AAPKb670b25c5e1f41ffa2ce27d04227d3f93K9J3E8suZymk8VVxsokwPYEIElN3ACsM6Paswtiz4gfOWbwBRFrCw9MeErykeeJ";
       const map = new Map({
@@ -94,15 +95,14 @@
         width: 4
      };
 
-     const lineAtt = {
+     const lineArt = {
         Name: "Shoal Creek", // The name of the area
     };
-
 
   const polylineGraphic = new Graphic({
     geometry: polyline,
     symbol: lineSymbol,
-    attributes: lineAtt,
+    attributes: lineArt,
     popupTemplate: {
       title: "Shoal Creek",
       content: "A creek in Austin, Texas"
@@ -110,7 +110,37 @@
   });
 
   graphicsLayer.add(polylineGraphic);
-      
+    
+  // Create a polyline
+  const polygon = {  
+        type: "polygon",  
+        paths: [[-97.730348, 30.278725], [-97.727056, 30.286628], [-97.740146, 30.289555], [-97.740918, 30.281662]]
+      };
+
+  // Create a simple line symbol for rendering the line in the view
+  const lineSymbolp = {
+        type: "simple-line", // autocasts as new SimpleLineSymbol()
+        color: [226, 119, 40], // RGB color values as an array
+        width: 4
+     };
+
+  const lineArtp = {
+        Name: "University of Texas at Austin", // The name of the area
+    };
+
+  const polygonGraphic = new Graphic({
+    geometry: polygon,
+    symbol: lineSymbolp,
+    attributes: lineArtp,
+    popupTemplate: {
+      title: "University of Texas at Austin",
+      content: "A college in Austin"
+    }
+  });
+
+  graphicsLayer.add(polygonGraphic);
+
+
   // Define a pop-up for usaeduLayer
   const popupEduusa = {
     "title": "EDUs",
