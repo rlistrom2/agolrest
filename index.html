@@ -128,13 +128,6 @@
 
   map.add(usaeduLayer);
 
-
-  // Define a pop-up for usaeduLayer
-  const popupusairports = {
-    "title": "Airports",
-    "content": "<b>Site Number:</b> {Site_Num}<br><b>City:</b> {City}<br><b>Elevation:</b> {Elevation}<br><b>Airspace:</b> {Airspace_A}<br>"
-  }
-
   const airportRenderer = {
         "type": "simple",
         "symbol": {
@@ -144,6 +137,12 @@
           "height": "18px"
         }
       }
+
+  // Define a pop-up for usaeduLayer
+  const popupusairports = {
+    "title": "Airports",
+    "content": "<b>Site Number:</b> {Site_Num}<br><b>City:</b> {City}<br><b>Elevation:</b> {Elevation}<br><b>Airspace:</b> {Airspace_A}<br>"
+  }
 
   // Create a new FeatureLayer
   const usaairportLayer = new FeatureLayer({
