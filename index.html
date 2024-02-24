@@ -22,8 +22,9 @@
       "esri/geometry/Polyline",
       "esri/geometry/Polygon",
       "esri/layers/FeatureLayer", 
-      "esri/widgets/Editor"
-    ], function (esriConfig,Map, MapView, Graphic, GraphicsLayer, Polyline, Polygon, FeatureLayer, Editor) {
+      "esri/widgets/Editor", 
+      "esri/widgets/Legend"
+    ], function (esriConfig,Map, MapView, Graphic, GraphicsLayer, Polyline, Polygon, FeatureLayer, Editor, Legend) {
 
       esriConfig.apiKey = "AAPKb670b25c5e1f41ffa2ce27d04227d3f93K9J3E8suZymk8VVxsokwPYEIElN3ACsM6Paswtiz4gfOWbwBRFrCw9MeErykeeJ";
       const map = new Map({
@@ -280,6 +281,32 @@ const airportLabels = {
   // Add the widget to the view
   view.ui.add(editor, "top-right");
 
+
+  // Create a new Legend widget
+  const legend = new Legend({
+    view: view,
+    layerInfos: [
+      {
+        layer: myAirports,
+        title: "My Airports"
+      },
+      {
+        layer: usaairportLayer,
+        title: "US Airports"
+      },
+      {
+        layer: usaheliportLayer,
+        title: "US Heliports"
+      },
+      {
+        layer: usaeduLayer,
+        title: "US Colleges and Universities"
+      }
+    ]
+  });
+
+  // Add the widget to the view
+  view.ui.add(legend, "bottom-right");
 
     });
   </script>
